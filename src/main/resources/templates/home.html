@@ -46,12 +46,16 @@
 </nav>
 
 <div class="container">
-    <!-- Welcome Card -->
+
+    <div th:if="${successMessage}" class="alert alert-success alert-dismissible fade show mb-4 border-0 shadow-sm" role="alert" style="background-color: #d1e7dd; color: #0f5132; border-left: 4px solid #0f5132 !important;">
+        <span class="fw-bold">✓</span> <span th:text="${successMessage}">성공 메시지</span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
     <div class="welcome-card p-4 mb-4">
         <h4 class="fw-bold mb-1">환영합니다!</h4>
         <p class="mb-1 opacity-75" th:text="${username}"></p>
         <div class="mt-2">
-            <!-- 컨트롤러에서 ROLE_ 접두사를 제거한 문자열 목록을 전달받음 -->
             <span th:each="role : ${roles}"
                   class="badge bg-white text-dark badge-role me-1"
                   th:text="${role}"></span>
